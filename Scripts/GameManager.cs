@@ -118,47 +118,47 @@ public class GameManager : MonoBehaviour
         ///////////////////////////
         //limited Block(Rings)   //
         ///////////////////////////
-        //LevelRings = LevelRings + 1;
-        //LevelRings = /*10;*/PlayerPrefs.GetInt("Level", 11);
-        //Debug.Log(K + "fedasf" + LevelRings);
-        //for (int i = 0; i < LevelRings; i++)
-        //{
-        //    if (i == 0)
-        //    {
-        //        G = Instantiate(AllPrefeb[0], ParentObject.transform);
-        //    }
-        //    else if (i == LevelRings - 1)
-        //    {
-        //        G = Instantiate(AllPrefeb[LevelRings - 1], ParentObject.transform);
-        //    }
-        //    else
-        //    {
-        //        G = Instantiate(AllPrefeb[Random.Range(1, AllPrefeb.Length - 1)], ParentObject.transform);
-        //    }
-        //    G.transform.Translate(new Vector3(0, -i * 4f, 0));
-        //    G.transform.Rotate(new Vector3(0, 360, 0));
-        //}
+        LevelRings = 9;
+        LevelRings = LevelRings + 1;
+        LevelRings = /*10;*/PlayerPrefs.GetInt("Level", LevelRings);
+        for (int i = 0; i < LevelRings; i++)
+        {
+            if (i == 0)
+            {
+                G = Instantiate(AllPrefeb[0], ParentObject.transform);
+            }
+            else if (i == LevelRings - 1)
+            {
+                G = Instantiate(AllPrefeb[i - 1], ParentObject.transform);
+            }
+            else
+            {
+                G = Instantiate(AllPrefeb[Random.Range(1, AllPrefeb.Length - 1)], ParentObject.transform);
+            }
+            G.transform.Translate(new Vector3(0, -i * 4f, 0));
+            G.transform.Rotate(new Vector3(0, 360, 0));
+        }
 
 
 
         /////////////////////////////
         // Unlimited Block(Rings)  //
         /////////////////////////////
-        GameObject U;
-        int K = Random.Range(0, 360);
-        U = Instantiate(AllPrefeb[0], ParentObject.transform);
-        U.transform.Translate(new Vector3(0, 1 + 4f, 0));
-        do
-        {
-            for (int i = 0; i < 998; i++)
-            {
-                G = Instantiate(AllPrefeb[Random.Range(1, AllPrefeb.Length - 1)], ParentObject.transform);
-                G.transform.Translate(new Vector3(0, -i * 4f, 0));
-                G.transform.Rotate(new Vector3(0, K, 0));
-            }
-        } while (G.transform.childCount.Equals(10));
-        U = Instantiate(AllPrefeb[LevelRings - 1], ParentObject.transform);
-        U.transform.Translate(new Vector3(0, 999 * 4f, 0));
+        //GameObject U;
+        //int K = Random.Range(0, 360);
+        //U = Instantiate(AllPrefeb[0], ParentObject.transform);
+        //U.transform.Translate(new Vector3(0, 1 + 4f, 0));
+        //do
+        //{
+        //    for (int i = 0; i < 998; i++)
+        //    {
+        //        G = Instantiate(AllPrefeb[Random.Range(1, AllPrefeb.Length - 1)], ParentObject.transform);
+        //        G.transform.Translate(new Vector3(0, -i * 4f, 0));
+        //        G.transform.Rotate(new Vector3(0, K, 0));
+        //    }
+        //} while (G.transform.childCount.Equals(10));
+        //U = Instantiate(AllPrefeb[LevelRings - 1], ParentObject.transform);
+        //U.transform.Translate(new Vector3(0, 999 * 4f, 0));
 
     }
     public void RETRYButton()
